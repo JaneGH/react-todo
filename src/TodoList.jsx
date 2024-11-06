@@ -1,13 +1,8 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
+import PropTypes from "prop-types";
 
-function TodoList() {
-  const todoList = [
-    { id: 1, title: "Read a book" },
-    { id: 2, title: "Prepare a dinner" },
-    { id: 3, title: "Learn 5 spanish words" },
-  ];
-
+function TodoList({ todoList }) {
   return (
     <ul>
       {todoList.map((todo) => (
@@ -16,5 +11,14 @@ function TodoList() {
     </ul>
   );
 }
+
+TodoList.propTypes = {
+  todoList: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default TodoList;

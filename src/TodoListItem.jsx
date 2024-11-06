@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function TodoListItem(props) {
-  return <li>{props.todo.title}</li>;
+function TodoListItem({todo}) {
+  return <li>{todo.title}</li>;
 }
 
 TodoListItem.propTypes = {
