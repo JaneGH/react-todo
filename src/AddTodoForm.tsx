@@ -1,18 +1,26 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
-const AddTodoForm = ({ onAddTodo }) => {
-  const [todoTitle, setTodoTitle] = useState("");
+interface Todo {
+  title: string;
+  id: number;
+}
 
-  const handleTitleChange = (event) => {
+interface AddTodoFormProps {
+  onAddTodo: (todo: Todo) => void;
+}
+
+const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
+  const [todoTitle, setTodoTitle] = useState<string>("");
+
+  const handleTitleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const newTodoTitle = event.target.value;
     setTodoTitle(newTodoTitle);
   };
 
-  const handleAddTodo = (event) => {
-    event.preventDefault(event);
+  const handleAddTodo = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
     if (todoTitle.trim() !== "") {
-      const newTodo = {
+      const newTodo: Todo = {
         title: todoTitle,
         id: Date.now(),
       };
@@ -34,10 +42,6 @@ const AddTodoForm = ({ onAddTodo }) => {
       <button type="submit">Add</button>
     </form>
   );
-};
-
-AddTodoForm.propTypes = {
-  onAddTodo: PropTypes.func.isRequired,
 };
 
 export default AddTodoForm;
