@@ -1,7 +1,7 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-function TodoList() {
+const TodoList = () => {
   const todoList = [
     { id: 1, title: "Read a book" },
     { id: 2, title: "Prepare a dinner" },
@@ -15,6 +15,6 @@ function TodoList() {
       ))}
     </ul>
   );
-}
+};
 
 export default TodoList;

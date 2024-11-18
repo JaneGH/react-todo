@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function TodoListItem(props) {
+const TodoListItem = (props) => {
   return <li>{props.todo.title}</li>;
 }
 
