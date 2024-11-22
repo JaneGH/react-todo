@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TodoList from "./TodoList";
-import AddTodoForm from "./AddTodoForm";
+import TodoList from "./components/TodoList";
+import AddTodoForm from "./components/AddTodoForm";
 
 // Define a type for the Todo item
 interface Todo {
@@ -9,7 +9,6 @@ interface Todo {
 }
 
 const App: React.FC = () => {
-
   const [todoList, setTodoList] = useState<Todo[]>([]);
 
   const addTodo = (newTodo: Todo) => {

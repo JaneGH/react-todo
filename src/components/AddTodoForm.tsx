@@ -1,13 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-
-interface Todo {
-  title: string;
-  id: number;
-}
-
-interface AddTodoFormProps {
-  onAddTodo: (todo: Todo) => void;
-}
+import { AddTodoFormProps, Todo } from "../utils/types"; 
 
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState<string>("");
