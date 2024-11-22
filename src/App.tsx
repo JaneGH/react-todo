@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import TodoList from "./TodoList";
+import TodoList from "./types/TodoList";
 import AddTodoForm from "./AddTodoForm";
+import "./styles/styles.css";  
 
 // Define a type for the Todo item
 interface Todo {
@@ -31,11 +32,16 @@ const App: React.FC = () => {
     setTodoList((prevTodoList) => [...prevTodoList, newTodo]);
   };
 
+  const removeTodo = (id: number) => {
+    const updatedTodoList = todoList.filter((todo) => todo.id !== id);
+    setTodoList(updatedTodoList);
+  };
+
   return (
     <React.Fragment>
       <h1>My Todo List</h1>
       <AddTodoForm onAddTodo={addTodo} />
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
     </React.Fragment>
   );
 };

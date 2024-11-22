@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import InputWithLabel from "./InputWithLabel";
 
 interface Todo {
   title: string;
@@ -31,14 +32,12 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
 
   return (
     <form onSubmit={handleAddTodo}>
-      <label htmlFor="todoTitle">Title</label>
-      <input
-        id="todoTitle"
-        name="title"
-        type="text"
+      <InputWithLabel
         value={todoTitle}
         onChange={handleTitleChange}
-      />
+      >
+        Title
+      </InputWithLabel>
       <button type="submit">Add</button>
     </form>
   );
