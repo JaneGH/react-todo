@@ -1,14 +1,6 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
-
-interface Todo {
-  id: number;
-  title: string;
-}
-
-interface TodoListProps {
-  todoList: Todo[];
-}
+import { TodoListProps } from "../utils/types";
 
 const TodoList: React.FC<TodoListProps> = ({ todoList }) => {
   return (

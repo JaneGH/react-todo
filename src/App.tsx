@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import TodoList from "./TodoList";
-import AddTodoForm from "./AddTodoForm";
-
-// Define a type for the Todo item
-interface Todo {
-  id: number;
-  title: string;
-}
+import TodoList from "./components/TodoList";
+import AddTodoForm from "./components/AddTodoForm";
+import { Todo } from "./utils/types";
 
 function useSemiPersistentState(): [
   Todo[],
