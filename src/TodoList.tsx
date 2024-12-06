@@ -1,11 +1,6 @@
 import React from "react";
-import TodoListItem from "../TodoListItem";
-import { Todo } from "../types";
-
-interface TodoListProps {
-  todoList: Todo[];
-  onRemoveTodo: (id: number) => void;
-}
+import TodoListItem from "./TodoListItem";
+import {TodoListProps } from "./types/types";
 
 const TodoList: React.FC<TodoListProps> = ({ todoList, onRemoveTodo }) => {
   return (

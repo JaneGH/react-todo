@@ -1,14 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import InputWithLabel from "./InputWithLabel";
-
-interface Todo {
-  title: string;
-  id: number;
-}
-
-interface AddTodoFormProps {
-  onAddTodo: (todo: Todo) => void;
-}
+import { AddTodoFormProps, Todo } from "./types/types";
 
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState<string>("");
@@ -32,10 +24,7 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
 
   return (
     <form onSubmit={handleAddTodo}>
-      <InputWithLabel
-        value={todoTitle}
-        onChange={handleTitleChange}
-      >
+      <InputWithLabel value={todoTitle} onChange={handleTitleChange}>
         Title
       </InputWithLabel>
       <button type="submit">Add</button>

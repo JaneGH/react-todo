@@ -1,10 +1,5 @@
 import React from "react";
-import { Todo } from "./types";
-
-interface TodoListItemProps {
-  todo: Todo;
-  onRemoveTodo: (id: number) => void;
-}
+import { TodoListItemProps } from "./types/types";
 
 const TodoListItem: React.FC<TodoListItemProps> = ({ todo, onRemoveTodo }) => {
   const handleRemoveClick = () => {
