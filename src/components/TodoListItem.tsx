@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoListItemProps } from "./types/types";
+import { TodoListItemProps } from "../utils/types";
 
 const TodoListItem: React.FC<TodoListItemProps> = ({ todo, onRemoveTodo }) => {
   const handleRemoveClick = () => {
