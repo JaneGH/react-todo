@@ -1,23 +1,9 @@
-import React, { useState, useEffect } from "react";
-import TodoList from "./components/TodoList";
-import AddTodoForm from "./components/AddTodoForm";
+import React from "react";
+import "./styles/styles.css";
 import { Todo } from "./utils/types";
-
-function useSemiPersistentState(): [
-  Todo[],
-  React.Dispatch<React.SetStateAction<Todo[]>>
-] {
-  const [todoList, setTodoList] = useState<Todo[]>(() => {
-    const savedTodoList = localStorage.getItem("savedTodoList");
-    return savedTodoList ? (JSON.parse(savedTodoList) as Todo[]) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("savedTodoList", JSON.stringify(todoList));
-  }, [todoList]);
-
-  return [todoList, setTodoList];
-}
+import AddTodoForm from "./components/AddTodoForm";
+import TodoList from "./components/TodoList";
+import useSemiPersistentState from "./hooks/useSemiPersistentState";
 
 const App: React.FC = () => {
   const [todoList, setTodoList] = useSemiPersistentState();
@@ -26,11 +12,16 @@ const App: React.FC = () => {
     setTodoList((prevTodoList) => [...prevTodoList, newTodo]);
   };
 
+  const removeTodo = (id: number) => {
+    const updatedTodoList = todoList.filter((todo) => todo.id !== id);
+    setTodoList(updatedTodoList);
+  };
+
   return (
     <React.Fragment>
       <h1>My Todo List</h1>
       <AddTodoForm onAddTodo={addTodo} />
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
     </React.Fragment>
   );
 };
