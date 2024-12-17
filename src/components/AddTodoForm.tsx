@@ -2,7 +2,6 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { AddTodoFormProps, Todo } from "../utils/types";
 import InputWithLabel from "../InputWithLabel";
 
-
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState<string>("");
 
