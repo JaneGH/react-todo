@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./styles/styles.css";
 import AddTodoForm from "./components/AddTodoForm";
 import TodoList from "./components/TodoList";
@@ -23,7 +24,6 @@ const App: React.FC = () => {
       import.meta.env.VITE_AIRTABLE_BASE_ID
     }/${import.meta.env.VITE_TABLE_NAME}`;
 
-  
     try {
       const response = await fetch(url, options);
 
@@ -123,15 +123,25 @@ const App: React.FC = () => {
   }, [todoList, isLoading]);
 
   return (
-    <React.Fragment>
-      <h1>My Todo List</h1>
-      <AddTodoForm onAddTodo={addTodo} />
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-      )}
-    </React.Fragment>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <React.Fragment>
+              <h1>My Todo List</h1>
+              <AddTodoForm onAddTodo={addTodo} />
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+              )}
+            </React.Fragment>
+          }
+        />
+        <Route path="/new" element={<h1>New Todo List</h1>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
