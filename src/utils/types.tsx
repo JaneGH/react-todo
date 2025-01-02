@@ -1,16 +1,16 @@
 export interface Todo {
-  id: number;
+  id: string;
   title: string;
 }
 
 export interface TodoListItemProps {
   todo: Todo;
-  onRemoveTodo: (id: number) => void;
+  onRemoveTodo: (id: string) => void;
 }
 
 export interface TodoListProps {
   todoList: Todo[];
-  onRemoveTodo: (id: number) => void;
+  onRemoveTodo: (id: string) => void;
 }
 
 export interface AddTodoFormProps {
@@ -22,3 +22,16 @@ export interface InputWithLabelProps {
   children: React.ReactNode;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+export interface Todo {
+  title: string;
+}
+
+export interface AirtableResponse {
+  id: string;
+  fields: {
+    title: string;
+  };
+  createdTime: string;
+}
+
