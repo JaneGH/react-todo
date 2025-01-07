@@ -10,17 +10,17 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
     setTodoTitle(newTodoTitle);
   };
 
-  const handleAddTodo = (event: FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    if (todoTitle.trim() !== "") {
-      const newTodo: Todo = {
-        title: todoTitle,
-        id: Date.now(),
-      };
-      onAddTodo(newTodo);
-      setTodoTitle("");
-    }
-  };
+ const handleAddTodo = (event: FormEvent<HTMLFormElement>): void => {
+   event.preventDefault();
+   if (todoTitle.trim() !== "") {
+     const newTodo: Todo = {
+       title: todoTitle,
+       id: "",
+     };
+     onAddTodo(newTodo);
+     setTodoTitle("");
+   }
+ };
 
   return (
     <form onSubmit={handleAddTodo} className="add-todo-form">
