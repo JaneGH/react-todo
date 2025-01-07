@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { AddTodoFormProps, Todo } from "../utils/types";
+import { AddTodoFormProps } from "../utils/types";
 import InputWithLabel from "../InputWithLabel";
 
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
@@ -12,14 +12,11 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
 
  const handleAddTodo = (event: FormEvent<HTMLFormElement>): void => {
    event.preventDefault();
-   if (todoTitle.trim() !== "") {
-     const newTodo: Todo = {
-       title: todoTitle,
-       id: "",
-     };
-     onAddTodo(newTodo);
-     setTodoTitle("");
-   }
+  const todoTitleStr  = (todoTitle.trim());
+  if (todoTitleStr !== "") {
+    onAddTodo(todoTitleStr);
+    setTodoTitle("");
+  }
  };
 
   return (

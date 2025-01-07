@@ -45,7 +45,7 @@ const App: React.FC = () => {
     }
   };
 
-  const addTodo = async (newTodo: Todo) => {
+  const addTodo = async (title: string) => {
     try {
       const url = `https://api.airtable.com/v0/${
         import.meta.env.VITE_AIRTABLE_BASE_ID
@@ -58,7 +58,7 @@ const App: React.FC = () => {
         },
         body: JSON.stringify({
           fields: {
-            title: newTodo.title,
+            title: title,
           },
         }),
       };
@@ -72,7 +72,7 @@ const App: React.FC = () => {
       const data = await response.json();
       setTodoList((prevTodoList) => [
         ...prevTodoList,
-        { id: data.id, title: newTodo.title },
+        { id: data.id, title: title },
       ]);
     } catch (error) {
       if (error instanceof Error) {

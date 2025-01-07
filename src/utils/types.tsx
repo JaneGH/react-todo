@@ -14,7 +14,7 @@ export interface TodoListProps {
 }
 
 export interface AddTodoFormProps {
-  onAddTodo: (todo: Todo) => void;
+  onAddTodo: (title: string) => void;
 }
 
 export interface InputWithLabelProps {
