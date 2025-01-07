@@ -7,10 +7,7 @@ import { Todo, AirtableResponse } from "./utils/types";
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [todoList, setTodoList] = useState<Todo[]>(() => {
-    const savedTodoList = localStorage.getItem("savedTodoList");
-    return savedTodoList ? (JSON.parse(savedTodoList) as Todo[]) : [];
-  });
+  const [todoList, setTodoList] = useState<Todo[]>([]);
 
   const fetchData = async () => {
     const options = {
@@ -33,6 +30,7 @@ const App: React.FC = () => {
 
       const data = await response.json();
       console.log("Airtable API response:", data);
+
       setTodoList(
         data.records.map((record: AirtableResponse) => ({
           id: record.id,
@@ -48,7 +46,7 @@ const App: React.FC = () => {
     }
   };
 
-  const addTodo = async (newTodo: Todo) => {
+  const addTodo = async (title: string) => {
     try {
       const url = `https://api.airtable.com/v0/${
         import.meta.env.VITE_AIRTABLE_BASE_ID
@@ -61,7 +59,7 @@ const App: React.FC = () => {
         },
         body: JSON.stringify({
           fields: {
-            title: newTodo.title,
+            title: title,
           },
         }),
       };
@@ -75,7 +73,8 @@ const App: React.FC = () => {
       const data = await response.json();
       setTodoList((prevTodoList) => [
         ...prevTodoList,
-        { id: data.id, title: newTodo.title },
+        
+        { id: data.id, title: title },
       ]);
     } catch (error) {
       if (error instanceof Error) {
@@ -115,12 +114,6 @@ const App: React.FC = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  useEffect(() => {
-    if (!isLoading) {
-      localStorage.setItem("savedTodoList", JSON.stringify(todoList));
-    }
-  }, [todoList, isLoading]);
 
   return (
     <BrowserRouter>
