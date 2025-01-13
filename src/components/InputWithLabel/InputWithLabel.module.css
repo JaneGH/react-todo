@@ -1,0 +1,24 @@
+
+.inputLabel {
+  font-size: 20px;
+  padding-right: 1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.inputField {
+  width: 400px;
+  margin-right: 1rem;
+  flex-grow: 1;
+  padding: 0.6rem;
+  font-size: 14px;
+  border: 2px solid #dcdcdc;
+  border-radius: 8px;
+  transition: border-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}

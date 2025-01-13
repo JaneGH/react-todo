@@ -1,0 +1,54 @@
+.appContainer {
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+  max-width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.appContainer .loading {
+  font-size: 1.2rem;
+  color: #3498db;
+}
+
+@media (max-width: 1024px) {
+  .appContainer {
+    padding: 15px;
+  }
+
+  .appContainer .loading {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .appContainer {
+    padding: 10px;
+  }
+
+  .appContainer .loading {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .appContainer {
+    padding: 8px;
+  }
+
+  .appContainer .loading {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .appContainer {
+    padding: 5px;
+  }
+
+  .appContainer .loading {
+    font-size: 0.8rem;
+  }
+}
