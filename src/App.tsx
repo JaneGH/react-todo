@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./styles/styles.css";
 import AddTodoForm from "./components/AddTodoForm";
 import TodoList from "./components/TodoList";
@@ -72,6 +73,7 @@ const App: React.FC = () => {
       const data = await response.json();
       setTodoList((prevTodoList) => [
         ...prevTodoList,
+        
         { id: data.id, title: title },
       ]);
     } catch (error) {
@@ -114,15 +116,25 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <React.Fragment>
-      <h1>My Todo List</h1>
-      <AddTodoForm onAddTodo={addTodo} />
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-      )}
-    </React.Fragment>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <React.Fragment>
+              <h1>My Todo List</h1>
+              <AddTodoForm onAddTodo={addTodo} />
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+              )}
+            </React.Fragment>
+          }
+        />
+        <Route path="/new" element={<h1>New Todo List</h1>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
