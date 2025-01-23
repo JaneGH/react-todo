@@ -1,98 +1,82 @@
+body, html {
+  background-color: var(--background-main-color);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wrapper {    
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;      
+  width: 60vw;     
+  max-width: 1200px;  
+  flex-grow: 1;     
+  margin: 0 auto;     
+  position: relative;
+}
+
 .appContainer {
-  align-items: center;
+  align-items: center; 
   min-height: 100vh;
   padding: 20px;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-}
-
-.appContainer .loading {
-  font-size: 1.2rem;
-  color: #3498db;
-}
-
-.sortContainer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  flex-direction: column; 
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  justify-content: flex-start;
-}
-
-.sortLabel {
-  font-size: 1.1rem;
-  margin-right: 15px;
-  font-weight: bold;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .sortSelect {
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: 2px solid #3498db;
-  border-radius: 5px;
-  background-color: #ffffff;
-  color: #333;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--sort-select-background);
+  color: var(--sort-select-color);
+  border: 2px solid var(--sort-select-border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sortSelect:hover {
-  border-color: #2980b9; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: var(--sort-select-hover-border);
+  box-shadow: 0 4px 8px var(--sort-select-box-shadow);
 }
 
 .sortSelect:focus {
-  border-color: #2980b9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: var(--sort-select-focus-border);
+  box-shadow: 0 4px 8px var(--sort-select-focus-box-shadow);
 }
 
-@media (max-width: 1024px) {
-  .sortLabel {
-    font-size: 1rem;
-  }
-
-  .sortSelect {
-    font-size: 0.95rem;
-    padding: 8px 12px;
-  }
+.h1 {
+  font-size: 2.5em;
+  color: var(--header-text-color);
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-  .sortLabel {
-    font-size: 0.9rem;
-  }
-
-  .sortSelect {
-    font-size: 0.85rem;
-    padding: 7px 10px;
-  }
+.inputLabel {
+  font-size: 20px;
+  padding-right: 1rem;
+  margin-bottom: 5px;
+  color: var(--text-color);
 }
 
-@media (max-width: 480px) {
-  .sortLabel {
-    font-size: 0.8rem;
-  }
-
-  .sortSelect {
-    font-size: 0.75rem;
-    padding: 6px 8px;
-  }
+.inputField {
+  width: 400px;
+  margin-right: 1rem;
+  flex-grow: 1;
+  padding: 0.6rem;
+  font-size: 14px;
+  border: 2px solid #dcdcdc;
+  border-radius: 8px;
+  transition: border-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
 }
 
-@media (max-width: 320px) {
-  .sortLabel {
-    font-size: 0.7rem;
-  }
-
-  .sortSelect {
-    font-size: 0.7rem;
-    padding: 6px 8px;
-  }
+.inputField:focus {
+  outline: none;
+  border-color: var(--button-background-color);
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
 }

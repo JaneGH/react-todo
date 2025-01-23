@@ -1,0 +1,27 @@
+.navContainer {
+  background-color: var(--header-background);
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.navList li {
+  margin-right: 20px;
+}
+
+.navLink {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #ffeb3b;
+}

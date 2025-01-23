@@ -1,11 +1,10 @@
-
 .todoListItem {
   padding: 10px 15px;
   border-bottom: 1px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--form-background-color);
   border-radius: 5px;
   margin: 5px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -18,17 +17,18 @@
 
 .todoListItemText {
   font-size: 18px;
-  color: #333;
+  color: var(--text-color);
   transition: color 0.3s ease;
-  white-space: nowrap;     
-  overflow: hidden;          
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
-  max-width: calc(100% - 80px); 
+  max-width: calc(100% - 80px);
 }
 
 .todoListItem:hover .todoListItemText {
-  color: #3498db; 
+  color: var(--button-background-color);
 }
+
 .removeBtn {
   background-color: #ff8a80;
   color: white;
@@ -45,12 +45,12 @@
 }
 
 .removeBtn .removeIcon {
-  margin-right: 8px; /* Отступ между иконкой и текстом */
+  margin-right: 8px;
   font-size: 18px;
 }
 
 .removeBtn:hover {
-  background-color: #d32f2f;
+  background-color: var(--button-active-background-color);
   transform: scale(1.05);
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -63,4 +63,21 @@
 .removeBtn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4);
+}
+
+.checkIcon {
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.completeBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.checked {
+  color: #9C9A6A;
+}
+
+.empty {
+  color: lightgray;
 }
