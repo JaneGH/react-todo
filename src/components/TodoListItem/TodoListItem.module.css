@@ -123,3 +123,17 @@
 .todoTable td:last-child {
   text-align: center; 
 }
+
+.overdue {
+  color: #ff8a80; 
+}
+
+.overdue .todoListItemText {
+  font-weight: bold; 
+}
+
+.overdueIcon {
+  color: #ff8a80; 
+  font-size: 1.5rem; 
+  margin-left: 10px; 
+}

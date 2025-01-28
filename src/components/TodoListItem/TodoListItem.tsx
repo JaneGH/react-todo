@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import styles from "./TodoListItem.module.css";
 import { TodoListItemProps } from "../../utils/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt, faCheckCircle, faPen } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrashAlt,
+  faCheckCircle,
+  faPen,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import EditTodoModal from "../EditTodoModal/EditTodoModal";
 
 const TodoListItem: React.FC<TodoListItemProps> = ({
@@ -13,6 +18,11 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
 }) => {
   const [completedAt, setCompletedAt] = useState<Date | null>(todo.completedAt);
   const [isEditing, setIsEditing] = useState(false);
+  const isOverdue =
+    todo.dueDate &&
+    (typeof todo.dueDate === "string" ? new Date(todo.dueDate) : todo.dueDate) <
+      new Date() &&
+    !completedAt;
 
   const handleRemoveClick = () => {
     onRemoveTodo(todo.id);
@@ -49,7 +59,7 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
       <tr
         className={`${styles.todoListItem} ${
           completedAt ? styles.completed : ""
-        }`}
+        } ${isOverdue ? styles.overdue : ""}`}
       >
         <td>
           <button className={styles.completeBtn} onClick={handleCompleteClick}>
@@ -67,6 +77,14 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
           }`}
         >
           {todo.title}
+          {isOverdue && (
+            <span className={styles.overdueIcon}>
+              <FontAwesomeIcon
+                icon={faExclamationCircle}
+                className={styles.exclamationIcon}
+              />
+            </span>
+          )}
         </td>
         <td className={styles.dueDateText}>{formattedDueDate}</td>
         <td>
