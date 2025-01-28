@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TaskCompletionChart from "../TaskCompletionChart/TaskCompletionChart";
 import { AirtableResponse, Todo } from "../../utils/types";
+import styles from "../../App.module.css";
 import "./ChatPage.module.css";
 // import TodoContainer from "../TodoContainer/TodoContainer";
 
@@ -44,15 +45,15 @@ const ChatPage: React.FC = () => {
   }, []);
 
   return (
-     <div style={{ width: '100%', height: '100%' }}>
-    <div className="chatPage">
-      <h1 >Todo Chart Page</h1>
-      <div className="taskChartContainer">
-        <TaskCompletionChart todos={todos} />
-        {/* <TodoContainer tableName={import.meta.env.VITE_TABLE_NAME} /> */}
+    <div style={{ width: "100%", height: "100%" }}>
+      <div className="chatPage">
+        <h1 className={styles.h1}>Todo Chart Page</h1>
+        <div className="taskChartContainer">
+          <TaskCompletionChart todos={todos} />
+          {/* <TodoContainer tableName={import.meta.env.VITE_TABLE_NAME} /> */}
+        </div>
       </div>
     </div>
-     </div>
   );
 };
 

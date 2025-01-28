@@ -15,6 +15,32 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
 
       let titleA, titleB, createdTimeA, createdTimeB;
       switch (option) {
+        case "dueTimeAscending":
+          if (objectA.dueDate && objectB.dueDate) {
+            const timestampA = new Date(objectA.dueDate).getTime();
+            const timestampB = new Date(objectB.dueDate).getTime();
+            comparisonResult = timestampA - timestampB;
+          } else if (objectA.dueDate && !objectB.dueDate) {
+            comparisonResult = 1;
+          } else if (!objectA.dueDate && objectB.dueDate) {
+            comparisonResult = -1;
+          } else {
+            comparisonResult = 0;
+          }
+          break;
+        case "dueTimeDescending":
+          if (objectA.dueDate && objectB.dueDate) {
+            const timestampA = new Date(objectA.dueDate).getTime();
+            const timestampB = new Date(objectB.dueDate).getTime();
+            comparisonResult = timestampB - timestampA;
+          } else if (objectA.dueDate && !objectB.dueDate) {
+            comparisonResult = -1;
+          } else if (!objectA.dueDate && objectB.dueDate) {
+            comparisonResult = 1;
+          } else {
+            comparisonResult = 0;
+          }
+          break;
         case "createdTimeAscending":
           createdTimeA = new Date(objectA.createdTime).getTime();
           createdTimeB = new Date(objectB.createdTime).getTime();
@@ -228,6 +254,8 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
         <select id="sort-select" value={sortOption} onChange={handleSortChange}>
           <option value="createdTimeAscending">Time Asc</option>
           <option value="createdTimeDescending">Time Desc</option>
+          <option value="dueTimeAscending">Due Desc</option>
+          <option value="dueTimeDescending">Due Desc</option>
           <option value="titleAscending">Title Asc</option>
           <option value="titleDescending">Title Desc</option>
         </select>

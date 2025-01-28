@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { InputWithLabelProps } from "../../utils/types";
-
+import styles from "./InputWithLabel.module.css";
 const InputWithLabel: React.FC<InputWithLabelProps> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { value, children, onChange } = props;
@@ -13,7 +13,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = (props) => {
 
   return (
     <>
-      <label htmlFor="todoTitle" className="inputLabel">
+      <label htmlFor="todoTitle" className={styles.label}>
         {children}
       </label>
       <input
@@ -23,7 +23,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = (props) => {
         value={value}
         onChange={onChange}
         ref={inputRef}
-        className="inputField"
+        className={styles.input}
       />
     </>
   );

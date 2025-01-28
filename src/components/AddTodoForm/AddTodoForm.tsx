@@ -3,6 +3,7 @@ import styles from "./AddTodoForm.module.css";
 import { AddTodoFormProps } from "../../utils/types";
 import InputWithLabel from "../InputWithLabel/InputWithLabel";
 
+
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState<string>("");
   const [dueDate, setDueDate] = useState<Date | null>(null);
@@ -32,12 +33,12 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
   };
 
   return (
-    <form onSubmit={handleAddTodo} className={styles["add-todo-form"]}>
+    <form onSubmit={handleAddTodo} className={styles["addTodoForm"]}>
       <InputWithLabel value={todoTitle} onChange={handleTitleChange}>
         Title
       </InputWithLabel>
 
-      <label htmlFor="dueDate" className="inputLabel">
+      <label htmlFor="dueDate" className={styles.label}>
         Due Date
       </label>
       <input
@@ -45,7 +46,7 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
         id="dueDate"
         value={dueDate ? dueDate.toISOString().split("T")[0] : ""}
         onChange={handleDateChange}
-        className="inputField"
+        className={styles.input}
       />
 
       <button type="submit">Add</button>
