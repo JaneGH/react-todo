@@ -9,3 +9,9 @@
   display: inline-block;
   transition: color 0.2s ease;
 }
+
+.filterSortWrapper {
+  display: flex;
+  gap: 20px; 
+  align-items: center;≠
+}

@@ -8,12 +8,12 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [todoList, setTodoList] = useState<Todo[]>([]);
   const [sortOption, setSortOption] = useState<string>("createdTimeAscending");
+  const [filterOption, setFilterOption] = useState<string>("all");
 
   const sortTodoList = (list: Todo[], option: string): Todo[] => {
     const newList = [...list];
     return newList.sort((objectA, objectB) => {
       let comparisonResult = 0;
-
       let titleA, titleB, createdTimeA, createdTimeB;
       switch (option) {
         case "dueTimeAscending":
@@ -162,7 +162,6 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
     }
   };
 
-
   const toggleComplete = async (id: string, isCompleted: boolean) => {
     try {
       const url = `https://api.airtable.com/v0/${
@@ -211,7 +210,6 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
     newDueDate: Date | null
   ) => {
     try {
-      console.log("Editing Todo:", id, newTitle, newDueDate);
       const url = `https://api.airtable.com/v0/${
         import.meta.env.VITE_AIRTABLE_BASE_ID
       }/${tableName}/${id}`;
@@ -247,8 +245,6 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
       console.error("Error updating todo:", error);
     }
   };
-
-
 
   const removeTodo = async (id: string) => {
     try {
@@ -290,28 +286,60 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
     );
   };
 
+  const filteredTodoList = todoList.filter((todo) => {
+    switch (filterOption) {
+      case "completed":
+        return todo.completedAt != null;
+      case "inProgress":
+        return todo.completedAt == null;
+      case "all":
+      default:
+        return true;
+    }
+  });
+
   return (
     <div>
-      {/* <h1>{tableName}</h1> */}
       <AddTodoForm onAddTodo={addTodo} />
-      <div>
-        <label htmlFor="sort-select" className={styles.labelStyle}>
-          Sort by:
-        </label>
-        <select id="sort-select" value={sortOption} onChange={handleSortChange}>
-          <option value="createdTimeAscending">Time Asc</option>
-          <option value="createdTimeDescending">Time Desc</option>
-          <option value="dueTimeAscending">Due Desc</option>
-          <option value="dueTimeDescending">Due Desc</option>
-          <option value="titleAscending">Title Asc</option>
-          <option value="titleDescending">Title Desc</option>
-        </select>
+      <div className={styles.filterSortWrapper}>
+        <div>
+          <label htmlFor="filter-select" className={styles.labelStyle}>
+            Filter by:
+          </label>
+          <select
+            id="filter-select"
+            value={filterOption}
+            onChange={(e) => setFilterOption(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="inProgress">In Progress</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="sort-select" className={styles.labelStyle}>
+            Sort by:
+          </label>
+          <select
+            id="sort-select"
+            value={sortOption}
+            onChange={handleSortChange}
+          >
+            <option value="createdTimeAscending">Time Asc</option>
+            <option value="createdTimeDescending">Time Desc</option>
+            <option value="dueTimeAscending">Due Asc</option>
+            <option value="dueTimeDescending">Due Desc</option>
+            <option value="titleAscending">Title Asc</option>
+            <option value="titleDescending">Title Desc</option>
+          </select>
+        </div>
       </div>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <TodoList
-          todoList={todoList}
+          todoList={filteredTodoList}
           onRemoveTodo={removeTodo}
           onToggleComplete={toggleComplete}
           onEditTodo={editTodo}
