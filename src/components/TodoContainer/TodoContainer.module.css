@@ -1,0 +1,11 @@
+.labelStyle {
+  font-weight: 600;
+  margin-right: 5px;
+  margin-left: 15px;
+  font-family: "Dancing Script", sans-serif;
+  font-size: 1.2 rem;
+  color: var(--text-color-title);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  transition: color 0.2s ease;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Todo, AirtableResponse, TodoContainerProps } from "../../utils/types"; // Import the types
 import AddTodoForm from "../AddTodoForm/AddTodoForm";
 import TodoList from "../TodoList/TodoList";
+import styles from "./TodoContainer.module.css";
 
 const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -294,7 +295,9 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
       {/* <h1>{tableName}</h1> */}
       <AddTodoForm onAddTodo={addTodo} />
       <div>
-        <label htmlFor="sort-select">Sort by:</label>
+        <label htmlFor="sort-select" className={styles.labelStyle}>
+          Sort by:
+        </label>
         <select id="sort-select" value={sortOption} onChange={handleSortChange}>
           <option value="createdTimeAscending">Time Asc</option>
           <option value="createdTimeDescending">Time Desc</option>
