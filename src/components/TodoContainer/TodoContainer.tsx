@@ -204,6 +204,50 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
     }
   };
 
+  const editTodo = async (
+    id: string,
+    newTitle: string,
+    newDueDate: Date | null
+  ) => {
+    try {
+      console.log("Editing Todo:", id, newTitle, newDueDate);
+      const url = `https://api.airtable.com/v0/${
+        import.meta.env.VITE_AIRTABLE_BASE_ID
+      }/${tableName}/${id}`;
+
+      const options = {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fields: {
+            title: newTitle,
+            dueDate: newDueDate ? newDueDate.toISOString() : null,
+          },
+        }),
+      };
+
+      const response = await fetch(url, options);
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      setTodoList((prevTodoList) =>
+        prevTodoList.map((todo) =>
+          todo.id === id
+            ? { ...todo, title: newTitle, dueDate: newDueDate }
+            : todo
+        )
+      );
+    } catch (error) {
+      console.error("Error updating todo:", error);
+    }
+  };
+
+
 
   const removeTodo = async (id: string) => {
     try {
@@ -267,6 +311,7 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
           todoList={todoList}
           onRemoveTodo={removeTodo}
           onToggleComplete={toggleComplete}
+          onEditTodo={editTodo}
         />
       )}
     </div>

@@ -7,11 +7,23 @@ const EditTodoModal: React.FC<EditTodoModalProps> = ({
   onSave,
   onCancel,
 }) => {
-  const [newTitle, setNewTitle] = useState(todo.title);
-  const [newDueDate, setNewDueDate] = useState(todo.dueDate);
+  const [newTitle, setNewTitle] = useState<string>(todo.title);
+  const [newDueDate, setNewDueDate] = useState<string>(todo.dueDate);
 
   const handleSave = () => {
-    onSave(todo.id, newTitle, newDueDate);
+    if (todo.id) {
+      onSave(todo.id, newTitle, newDueDate);
+    } else {
+      console.error("Todo id is missing");
+    }
+  };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewTitle(e.target.value);
+  };
+
+  const handleDueDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewDueDate(e.target.value);
   };
 
   return (
@@ -23,7 +35,7 @@ const EditTodoModal: React.FC<EditTodoModalProps> = ({
           <input
             type="text"
             value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
+            onChange={handleTitleChange}
             className={styles.input}
           />
         </div>
@@ -32,7 +44,7 @@ const EditTodoModal: React.FC<EditTodoModalProps> = ({
           <input
             type="date"
             value={newDueDate}
-            onChange={(e) => setNewDueDate(e.target.value)}
+            onChange={handleDueDateChange}
             className={styles.input}
           />
         </div>

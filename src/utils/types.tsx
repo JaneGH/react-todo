@@ -11,14 +11,14 @@ export interface TodoListItemProps {
   todo: Todo;
   onRemoveTodo: (id: string) => void;
   onToggleComplete: (id: string, completed: boolean) => void;
-  onEditTodo: (id: string, newTitle: string, newDueDate: Date | null ) => void;
+  onEditTodo: (id: string, newTitle: string, newDueDate: Date | null) => void;
 }
 
 export interface TodoListProps {
   todoList: Todo[];
   onRemoveTodo: (id: string) => void;
   onToggleComplete: (id: string, isCompleted: boolean) => void;
-  onEditTodo: (id: string, newTitle: string) => void;
+  onEditTodo: (id: string, newTitle: string, newDueDate: Date | null) => void;
 }
 
 export interface AddTodoFormProps {

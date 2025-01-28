@@ -29,15 +29,12 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
     setIsEditing(true);
   };
 
-  const handleModalSave = (
-    id: string,
-    newTitle: string,
-    newDueDate: string
-  ) => {
-    const parsedDueDate = newDueDate ? new Date(newDueDate) : null;
-    onEditTodo(id, newTitle, parsedDueDate);
-    setIsEditing(false);
-  };
+ const handleModalSave = (id: string, newTitle: string, newDueDate: string) => {
+   console.log("Modal Save:", id, newTitle, newDueDate); 
+   const parsedDueDate = newDueDate ? new Date(newDueDate) : null;
+   onEditTodo(id, newTitle, parsedDueDate); 
+   setIsEditing(false);
+ };
 
   const handleModalCancel = () => {
     setIsEditing(false);
