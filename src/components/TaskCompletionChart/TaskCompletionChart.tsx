@@ -12,7 +12,7 @@ import {
   Filler,
 } from "chart.js";
 import { format } from "date-fns";
-import { Todo } from "../../utils/types";
+import { TaskCompletionChartProps, Todo } from "../../utils/types";
 import styles from "./TaskCompletionChart.module.css";
 
 ChartJS.register(
@@ -25,10 +25,6 @@ ChartJS.register(
   Legend,
   Filler
 );
-
-interface TaskCompletionChartProps {
-  todos: Todo[];
-}
 
 const TaskCompletionChart: React.FC<TaskCompletionChartProps> = ({ todos }) => {
   const groupByDate = (todos: Todo[]) => {

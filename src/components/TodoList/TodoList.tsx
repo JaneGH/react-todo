@@ -8,16 +8,35 @@ const TodoList: React.FC<TodoListProps> = ({
   onRemoveTodo,
   onToggleComplete,
 }) => {
-  const itemsPerPage = 7;
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(todoList.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = todoList.slice(startIndex, startIndex + itemsPerPage);
+  const [todos, setTodos] = useState(todoList);
+   const itemsPerPage = 7;
+   const [currentPage, setCurrentPage] = useState(1);
+   const totalPages = Math.ceil(todoList.length / itemsPerPage);
+   const startIndex = (currentPage - 1) * itemsPerPage;
+   const currentItems = todoList.slice(startIndex, startIndex + itemsPerPage);
 
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
+
+   const handlePageChange = (page: number) => {
+     if (page >= 1 && page <= totalPages) {
+       setCurrentPage(page);
+     }
+   };
+
+  const handleEditTodo = (
+    id: string,
+    newTitle: string,
+    newDueDate: Date | null
+  ) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id
+        ? {
+            ...todo,
+            title: newTitle,
+            dueDate: newDueDate,
+          }
+        : todo
+    );
+    setTodos(updatedTodos);
   };
 
   return (
@@ -29,6 +48,7 @@ const TodoList: React.FC<TodoListProps> = ({
             todo={todo}
             onRemoveTodo={onRemoveTodo}
             onToggleComplete={onToggleComplete}
+            onEditTodo={handleEditTodo}
           />
         ))}
       </ul>

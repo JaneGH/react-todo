@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Todo {
   id: string;
   title: string;
@@ -9,12 +11,14 @@ export interface TodoListItemProps {
   todo: Todo;
   onRemoveTodo: (id: string) => void;
   onToggleComplete: (id: string, completed: boolean) => void;
+  onEditTodo: (id: string, newTitle: string, newDueDate: Date | null ) => void;
 }
 
 export interface TodoListProps {
   todoList: Todo[];
   onRemoveTodo: (id: string) => void;
   onToggleComplete: (id: string, isCompleted: boolean) => void;
+  onEditTodo: (id: string, newTitle: string) => void;
 }
 
 export interface AddTodoFormProps {
@@ -48,3 +52,20 @@ export interface AirtableResponse {
   createdTime: string;
 }
 
+export interface EditTodoModalProps {
+  todo: { id: string; title: string; dueDate: string };
+  onSave: (id: string, newTitle: string, newDueDate: string) => void;
+  onCancel: () => void;
+}
+
+export interface TaskCompletionChartProps {
+  todos: Todo[];
+}
+
+export interface ThemeContextType {
+  isNightMode: boolean;
+  toggleTheme: () => void;
+}
+export interface ThemeProviderProps {
+  children: ReactNode;
+}

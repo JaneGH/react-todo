@@ -1,15 +1,7 @@
-import React, { createContext, useState, useEffect, ReactNode } from "react";
-
-interface ThemeContextType {
-  isNightMode: boolean;
-  toggleTheme: () => void;
-}
+import React, { createContext, useState, useEffect} from "react";
+import { ThemeContextType, ThemeProviderProps } from "../utils/types";
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-interface ThemeProviderProps {
-  children: ReactNode;
-}
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [isNightMode, setIsNightMode] = useState<boolean>(false);

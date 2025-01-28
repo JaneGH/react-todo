@@ -38,40 +38,47 @@
   color: var(--button-background-color);
 }
 
-.removeBtn {
-  background-color: #ff8a80;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  display: flex;
+.btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 40px;      
+  height: 40px;    
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
 }
 
-.removeBtn .removeIcon {
-  margin-right: 8px;
+.btn:last-child {
+  margin-right: 0; 
+}
+
+.icon {
   font-size: 18px;
+  color:  var(--icons-color);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.removeBtn:hover {
-  background-color: var(--button-active-background-color);
-  transform: scale(1.05);
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+.btn:hover .icon {
+  color: #9C9A6A; 
+  transform: scale(1.2); 
 }
 
-.removeBtn:active {
-  transform: scale(1);
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.removeBtn:hover .icon {
+  color: #ff8a80; 
+  transform: scale(1.2); 
 }
 
-.removeBtn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4);
+.removeBtn {
+  background-color: transparent;
+}
+
+.editBtn {
+  background-color: transparent;
 }
 
 .checkIcon {
