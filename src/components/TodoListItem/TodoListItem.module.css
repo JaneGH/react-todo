@@ -1,11 +1,12 @@
 .todoListItem {
   padding: 10px 15px;
   border-bottom: 1px solid #e0e0e0;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--form-background-color);
   border-radius: 5px;
+  display: flex;
+  width: 55vw;
   margin: 5px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -16,13 +17,21 @@
 }
 
 .todoListItemText {
-  font-size: 18px;
+ font-size: 18px;
+  text-align: left;
   color: var(--text-color);
+  flex-grow: 1;
+  text-overflow: ellipsis;
   transition: color 0.3s ease;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   max-width: calc(100% - 80px);
+  padding-left: 16px;
+}
+
+.dueDateText {
+  width: 100px;
+  flex-shrink: 0;
 }
 
 .todoListItem:hover .todoListItemText {
@@ -80,4 +89,30 @@
 
 .empty {
   color: lightgray;
+}
+
+.todoTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.todoTable th,
+.todoTable td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.todoTable th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.todoTable td {
+  word-wrap: break-word;
+  min-width: 150px;
+}
+
+.todoTable td:last-child {
+  text-align: center; 
 }

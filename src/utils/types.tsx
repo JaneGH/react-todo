@@ -8,7 +8,7 @@ export interface Todo {
 export interface TodoListItemProps {
   todo: Todo;
   onRemoveTodo: (id: string) => void;
-  onToggleComplete: (id: string, isCompleted: boolean) => void;
+  onToggleComplete: (id: string, completed: boolean) => void;
 }
 
 export interface TodoListProps {

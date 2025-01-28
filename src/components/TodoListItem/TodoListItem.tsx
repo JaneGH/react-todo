@@ -36,32 +36,36 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
   };
 
   return (
-    <li
+    <tr
       className={`${styles.todoListItem} ${
         completedAt ? styles.completed : ""
       }`}
     >
-      <button className={styles.completeBtn} onClick={handleCompleteClick}>
-        <FontAwesomeIcon
-          icon={faCheckCircle}
-          className={`${styles.checkIcon} ${
-            completedAt ? styles.checked : styles.empty
-          }`}
-        />
-      </button>
-      <span
+      <td>
+        <button className={styles.completeBtn} onClick={handleCompleteClick}>
+          <FontAwesomeIcon
+            icon={faCheckCircle}
+            className={`${styles.checkIcon} ${
+              completedAt ? styles.checked : styles.empty
+            }`}
+          />
+        </button>
+      </td>
+      <td
         className={`${styles.todoListItemText} ${
           completedAt ? styles.completedText : ""
         }`}
       >
         {todo.title}
-      </span>
-      <span className={styles.dueDateText}>{formattedDueDate}</span>
-      <button className={styles.removeBtn} onClick={handleRemoveClick}>
-        <FontAwesomeIcon icon={faTrashAlt} className={styles.removeIcon} />
-        <span className={styles.removeText}>Remove</span>
-      </button>
-    </li>
+      </td>
+      <td className={styles.dueDateText}>{formattedDueDate}</td>
+      <td>
+        <button className={styles.removeBtn} onClick={handleRemoveClick}>
+          <FontAwesomeIcon icon={faTrashAlt} className={styles.removeIcon} />
+          <span className={styles.removeText}>Remove</span>
+        </button>
+      </td>
+    </tr>
   );
 };
 
