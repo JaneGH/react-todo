@@ -23,5 +23,5 @@
 }
 
 .navLink:hover {
-  color: #ffeb3b;
+  color: var(--navigation-link-color);
 }

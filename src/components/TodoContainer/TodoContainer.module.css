@@ -1,12 +1,12 @@
 .labelStyle {
-  font-weight: 600;
   margin-right: 5px;
-  font-family: "Dancing Script", sans-serif;
-  font-size: 1.2 rem;
+  margin-left: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Dancing Script";
   color: var(--text-color-title);
-  margin-bottom: 0.5rem;
   display: inline-block;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .container {
@@ -31,13 +31,6 @@
   transition: transform 0.3s ease;
 }
 
-.labelStyle {
-  font-size: 16px;
-  font-weight: 600;
-  font-family: "Dancing Script";
-  color: var(--text-color-title);
-  transition: color 0.3s ease;
-}
 
 .selectStyle {
   padding: 8px 12px;

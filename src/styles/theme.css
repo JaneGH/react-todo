@@ -22,6 +22,7 @@
   --header-text-color: #4e4e4e;
   --chart-border-color: #4e4e4e;
   --chart-background-color:#f9f9f9;
+  --navigation-link-color:#b08550;
 }
 
 body.night {
@@ -48,4 +49,5 @@ body.night {
   --header-text-color: #e8d4b0;
   --chart-border-color: #4e4e4e;
   --chart-background-color:#e8d4b0;
+  --navigation-link-color:#ffeb3b;
 }
