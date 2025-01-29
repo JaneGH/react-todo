@@ -1,6 +1,7 @@
 :root {
   --background-color: #faf0e6;
-  --background-main-color: #e8d4b0;
+  --background-main-color: hwb(39 69% 9%);
+  --modal-dialog-color: #f9f9f9;
   --text-color: #4e4e4e;
   --icons-color: #4e4e4e;
   --text-color-title: #8e6e53;
@@ -26,6 +27,7 @@
 body.night {
   --background-color: #2d1a14;
   --background-main-color: #8e6e53;
+  --modal-dialog-color: #5c3e35;
   --text-color: #e8d4b0;
   --icons-color: #e8d4b0;
   --text-color-title: #e8d4b0;
