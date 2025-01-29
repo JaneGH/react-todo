@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { AddTodoFormProps } from "../utils/types";
-import InputWithLabel from "../InputWithLabel";
+import styles from "./AddTodoForm.module.css"; 
+import { AddTodoFormProps } from "../../utils/types";
+import InputWithLabel from "../InputWithLabel/InputWithLabel";
 
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState<string>("");
@@ -10,17 +11,17 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
     setTodoTitle(newTodoTitle);
   };
 
- const handleAddTodo = (event: FormEvent<HTMLFormElement>): void => {
-   event.preventDefault();
-  const todoTitleStr  = (todoTitle.trim());
-  if (todoTitleStr !== "") {
-    onAddTodo(todoTitleStr);
-    setTodoTitle("");
-  }
- };
+  const handleAddTodo = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    const todoTitleStr = todoTitle.trim();
+    if (todoTitleStr !== "") {
+      onAddTodo(todoTitleStr);
+      setTodoTitle("");
+    }
+  };
 
   return (
-    <form onSubmit={handleAddTodo} className="add-todo-form">
+    <form onSubmit={handleAddTodo} className={styles["add-todo-form"]}>
       <InputWithLabel value={todoTitle} onChange={handleTitleChange}>
         Title
       </InputWithLabel>
