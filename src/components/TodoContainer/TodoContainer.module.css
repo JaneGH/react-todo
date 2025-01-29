@@ -1,7 +1,6 @@
 .labelStyle {
   font-weight: 600;
   margin-right: 5px;
-  margin-left: 15px;
   font-family: "Dancing Script", sans-serif;
   font-size: 1.2 rem;
   color: var(--text-color-title);
@@ -10,8 +9,63 @@
   transition: color 0.2s ease;
 }
 
+.container {
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: var(--background-color);
+  border-radius: 8px;
+}
+
 .filterSortWrapper {
   display: flex;
-  gap: 20px; 
+  gap: 20px;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+
+.filterSortItem {
+  display: flex;
   align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.labelStyle {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Dancing Script";
+  color: var(--text-color-title);
+  transition: color 0.3s ease;
+}
+
+.selectStyle {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: var(--chart-background-color);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.selectStyle:focus {
+  border-color: 2px solid var(--sort-select-border);
+  background-color: #fff;
+  outline: none;
+}
+
+.selectStyle option {
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  .filterSortWrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filterSortItem {
+    min-width: auto;
+  }
 }

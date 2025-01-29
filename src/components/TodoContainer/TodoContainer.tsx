@@ -299,10 +299,11 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
       <AddTodoForm onAddTodo={addTodo} />
+
       <div className={styles.filterSortWrapper}>
-        <div>
+        <div className={styles.filterSortItem}>
           <label htmlFor="filter-select" className={styles.labelStyle}>
             Filter by:
           </label>
@@ -310,6 +311,7 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
             id="filter-select"
             value={filterOption}
             onChange={(e) => setFilterOption(e.target.value)}
+            className={styles.selectStyle}
           >
             <option value="all">All</option>
             <option value="completed">Completed</option>
@@ -317,7 +319,7 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
           </select>
         </div>
 
-        <div>
+        <div className={styles.filterSortItem}>
           <label htmlFor="sort-select" className={styles.labelStyle}>
             Sort by:
           </label>
@@ -325,6 +327,7 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
             id="sort-select"
             value={sortOption}
             onChange={handleSortChange}
+            className={styles.selectStyle}
           >
             <option value="createdTimeAscending">Time Asc</option>
             <option value="createdTimeDescending">Time Desc</option>
@@ -335,6 +338,7 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
           </select>
         </div>
       </div>
+
       {isLoading ? (
         <p>Loading...</p>
       ) : (
