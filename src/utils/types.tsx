@@ -25,6 +25,7 @@ export interface InputWithLabelProps {
 
 export interface Todo {
   title: string;
+  createdTime: string;
 }
 
 export interface AirtableResponse {

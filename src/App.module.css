@@ -3,7 +3,6 @@
   min-height: 100vh;
   padding: 20px;
   width: 100%;
-  max-width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -13,42 +12,87 @@
   color: #3498db;
 }
 
+.sortContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+}
+
+.sortLabel {
+  font-size: 1.1rem;
+  margin-right: 15px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sortSelect {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sortSelect:hover {
+  border-color: #2980b9; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sortSelect:focus {
+  border-color: #2980b9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 1024px) {
-  .appContainer {
-    padding: 15px;
+  .sortLabel {
+    font-size: 1rem;
   }
 
-  .appContainer .loading {
-    font-size: 1.1rem;
+  .sortSelect {
+    font-size: 0.95rem;
+    padding: 8px 12px;
   }
 }
 
 @media (max-width: 768px) {
-  .appContainer {
-    padding: 10px;
+  .sortLabel {
+    font-size: 0.9rem;
   }
 
-  .appContainer .loading {
-    font-size: 1rem;
+  .sortSelect {
+    font-size: 0.85rem;
+    padding: 7px 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .appContainer {
-    padding: 8px;
+  .sortLabel {
+    font-size: 0.8rem;
   }
 
-  .appContainer .loading {
-    font-size: 0.9rem;
+  .sortSelect {
+    font-size: 0.75rem;
+    padding: 6px 8px;
   }
 }
 
 @media (max-width: 320px) {
-  .appContainer {
-    padding: 5px;
+  .sortLabel {
+    font-size: 0.7rem;
   }
 
-  .appContainer .loading {
-    font-size: 0.8rem;
+  .sortSelect {
+    font-size: 0.7rem;
+    padding: 6px 8px;
   }
 }
