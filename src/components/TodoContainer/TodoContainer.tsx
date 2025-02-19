@@ -329,8 +329,8 @@ const TodoContainer: React.FC<TodoContainerProps> = ({ tableName }) => {
             onChange={handleSortChange}
             className={styles.selectStyle}
           >
-            <option value="createdTimeAscending">Time Asc</option>
-            <option value="createdTimeDescending">Time Desc</option>
+            {/* <option value="createdTimeAscending">Time Asc</option> */}
+            {/* <option value="createdTimeDescending">Time Desc</option> */}
             <option value="dueTimeAscending">Due Asc</option>
             <option value="dueTimeDescending">Due Desc</option>
             <option value="titleAscending">Title Asc</option>
