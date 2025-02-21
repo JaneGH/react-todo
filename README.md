@@ -1,15 +1,13 @@
 # React Todo
 
-A simple Todo List application built with React, TypeScript, and Vite.
+A simple Todo List application built with React, TypeScript, and Vite. The main features include a to-do list displaying overdue tasks and a progress chart showcasing completed tasks over time.
 
 ## Features
 
 - Add, delete, complete tasks
-- Built with React, TypeScript, and styled-components
-- Responsive design
-- Uses React Router for navigation
+- Show overdue tasks
+- Voice recognition
 - Visualize tasks using Chart.js
-- Linting and TypeScript support for better development experience
 
 ## Technologies Used
 

@@ -32,11 +32,44 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
     }
   };
 
+  const startSpeechRecognition = () => {
+   const SpeechRecognition =
+     (window as Window & typeof globalThis).SpeechRecognition ||
+     (window as Window & typeof globalThis).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Speech recognition is not supported in this browser.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
+      const speechResult = event.results[0][0].transcript;
+      setTodoTitle(speechResult);
+    };
+
+    recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+      console.error("Speech recognition error:", event.error);
+    };
+
+    recognition.start();
+  };
+
   return (
     <form onSubmit={handleAddTodo} className={styles["addTodoForm"]}>
       <InputWithLabel value={todoTitle} onChange={handleTitleChange}>
         Title
       </InputWithLabel>
+      <button
+        type="button"
+        onClick={startSpeechRecognition}
+        className={styles.micButton}
+      >
+        🎤
+      </button>
 
       <label htmlFor="dueDate" className={styles.label}>
         Due Date
