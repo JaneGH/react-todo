@@ -1,12 +1,12 @@
-
 .todoListItem {
   padding: 10px 15px;
   border-bottom: 1px solid #e0e0e0;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--form-background-color);
   border-radius: 5px;
+  display: flex;
+  width: 55vw;
   margin: 5px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -17,50 +17,123 @@
 }
 
 .todoListItemText {
-  font-size: 18px;
-  color: #333;
-  transition: color 0.3s ease;
-  white-space: nowrap;     
-  overflow: hidden;          
+ font-size: 18px;
+  text-align: left;
+  color: var(--text-color);
+  flex-grow: 1;
   text-overflow: ellipsis;
-  max-width: calc(100% - 80px); 
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: calc(100% - 80px);
+  padding-left: 16px;
+}
+
+.dueDateText {
+  width: 100px;
+  flex-shrink: 0;
 }
 
 .todoListItem:hover .todoListItemText {
-  color: #3498db; 
+  color: var(--button-background-color);
 }
-.removeBtn {
-  background-color: #ff8a80;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  display: flex;
+
+.btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 40px;      
+  height: 40px;    
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
 }
 
-.removeBtn .removeIcon {
-  margin-right: 8px; /* Отступ между иконкой и текстом */
+.btn:last-child {
+  margin-right: 0; 
+}
+
+.icon {
   font-size: 18px;
+  color:  var(--icons-color);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.removeBtn:hover {
-  background-color: #d32f2f;
-  transform: scale(1.05);
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+.btn:hover .icon {
+  color: #9C9A6A; 
+  transform: scale(1.2); 
 }
 
-.removeBtn:active {
-  transform: scale(1);
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.removeBtn:hover .icon {
+  color: #ff8a80; 
+  transform: scale(1.2); 
 }
 
-.removeBtn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4);
+.removeBtn {
+  background-color: transparent;
+}
+
+.editBtn {
+  background-color: transparent;
+}
+
+.checkIcon {
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.completeBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.checked {
+  color: #9C9A6A;
+}
+
+.empty {
+  color: lightgray;
+}
+
+.todoTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.todoTable th,
+.todoTable td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.todoTable th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.todoTable td {
+  word-wrap: break-word;
+  min-width: 150px;
+}
+
+.todoTable td:last-child {
+  text-align: center; 
+}
+
+.overdue {
+  color: #ff8a80; 
+}
+
+.overdue .todoListItemText {
+  font-weight: bold; 
+}
+
+.overdueIcon {
+  color: #ff8a80; 
+  font-size: 1.5rem; 
+  margin-left: 10px; 
 }

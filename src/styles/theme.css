@@ -1,0 +1,55 @@
+:root {
+  --background-color: #faf0e6;
+  --background-main-color: hwb(39 69% 9%);
+  --modal-dialog-color: #f9f9f9;
+  --text-color: #4e4e4e;
+    --mic-button-background: #f9f9f9;
+  --icons-color: #4e4e4e;
+  --text-color-title: #8e6e53;
+  --sort-select-background: #ffffff;
+  --sort-select-color: #4e4e4e;
+  --sort-select-border: #8e6e53;
+  --sort-select-hover-border: #a77e60;
+  --sort-select-focus-border: #b88a6e;
+  --sort-select-box-shadow: rgba(0, 0, 0, 0.1);
+  --sort-select-focus-box-shadow: rgba(0, 0, 0, 0.2);
+  --form-background-color: #f9f9f9;
+  --chart-background-color: #f9f9f9;
+  --button-background-color: #8e735b;
+  --button-text-color: #ffffff;
+  --button-hover-background-color: #6d4f34;
+  --button-active-background-color: #4b3621;
+  --header-background: #ffffff;
+  --header-text-color: #4e4e4e;
+  --chart-border-color: #4e4e4e;
+  --chart-background-color:#f9f9f9;
+  --navigation-link-color:#b08550;
+}
+
+body.night {
+  --background-color: #2d1a14;
+  --background-main-color: #8e6e53;
+  --modal-dialog-color: #5c3e35;
+  --text-color: #e8d4b0;
+  --mic-button-background: #e8d4b0;
+  --icons-color: #e8d4b0;
+  --text-color-title: #e8d4b0;
+  --sort-select-background: #5c3e35;
+  --sort-select-color: #e8d4b0;
+  --sort-select-border: #8b5e3c;
+  --sort-select-hover-border: #a06b46;
+  --sort-select-focus-border: #d08f5b;
+  --sort-select-box-shadow: rgba(255, 255, 255, 0.1);
+  --sort-select-focus-box-shadow: rgba(255, 255, 255, 0.2);
+  --form-background-color: #4b2b23;
+  --chart-background-color: #e8d4b0;
+  --button-background-color: #8b5e3c;
+  --button-text-color: #e8d4b0;
+  --button-hover-background-color: #a06b46;
+  --button-active-background-color: #6f4f2f;
+  --header-background: #5c3e35;
+  --header-text-color: #e8d4b0;
+  --chart-border-color: #4e4e4e;
+  --chart-background-color:#e8d4b0;
+  --navigation-link-color:#ffeb3b;
+}

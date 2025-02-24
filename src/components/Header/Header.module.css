@@ -1,0 +1,39 @@
+
+.header {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-background);
+  width: 100%; 
+}
+
+.logo img {
+   height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navAndToggle {
+  display: flex;
+  align-items: center;
+}
+
+.themeToggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.logoText {
+  font-size: 2rem;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text-color-title);
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}

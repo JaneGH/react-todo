@@ -1,7 +1,7 @@
-.add-todo-form {
+.addTodoForm {
   margin: 2rem auto;
   padding: 1.5rem;
-  background-color: #f9f9f9;
+  background-color: var(--form-background-color);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -9,12 +9,51 @@
   transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out;
 }
 
-.add-todo-form button {
+.label {
+  font-weight: 600;
+  margin-right: 5px;
+  margin-left: 15px;
+  font-family: "Dancing Script", sans-serif;
+  font-size: 1.5rem;
+  color: var(--text-color-title);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  color: var(--text-input-color);
+  margin-right: 5px;
+  border: 2px solid var(--sort-select-border);
+  border-radius: 8px;
+  background-color: var(--form-background-color);
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 1rem;
+}
+
+.input:focus {
+  border-color: var(--sort-select-focus-border);
+  box-shadow: 0 0 8px var(--sort-select-focus-box-shadow);
+  outline: none;
+}
+
+.input:hover {
+  border-color: var(--sort-select-hover-border);
+}
+
+.input::placeholder {
+  color: var(--text-color);
+}
+
+.addTodoForm button:not(.micButton) {
   padding: 0.8rem 2rem;
   font-size: 16px;
   font-weight: 600;
-  background-color: #3498db;
-  color: white;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
   border: none;
   border-radius: 30px;
   transition: all 0.3s ease;
@@ -24,24 +63,52 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.add-todo-form button .addIcon {
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-.add-todo-form button:hover {
-  background-color: #2980b9;
+.addTodoForm button:hover {
+  background-color: var(--button-hover-background-color);
   transform: translateY(-3px);
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.add-todo-form button:active {
-  background-color: #1c6ea4;
+.addTodoForm button:active {
+  background-color: var(--button-active-background-color);
   transform: translateY(2px);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.add-todo-form button:focus {
+.addTodoForm button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+.micButton {
+  width: 50px;
+  height: 50px;
+  background-color: var(--mic-button-background);
+  color: white;
+  border: none;
+  border-radius: 50%;
+   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.micButton:hover {
+  background-color: var(--mic-button-hover, #e84118);
+  transform: scale(1.1);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.micButton:active {
+  background-color: var(--mic-button-active, #c23616);
+  transform: scale(0.95);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.micButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.5);
 }
